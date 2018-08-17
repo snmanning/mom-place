@@ -1,0 +1,32 @@
+{
+  "name": "mom-place",
+  "version": "1.0.0",
+  "description": "A simple space to reset and jot a few thoughts into a digital journal and glean some encouragement from quotes and visual atmosphere",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "server:start": "nodemon server.js"
+  },
+  "proxy": "http://localhost:5005",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snmanning/mom-place.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snmanning/mom-place/issues"
+  },
+  "homepage": "https://github.com/snmanning/mom-place#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "helmet": "^3.13.0",
+    "morgan": "^1.9.0"
+  }
+}
