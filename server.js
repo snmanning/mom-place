@@ -9,7 +9,7 @@ const server = express();
 server.use(axios);
 
 //port
-const port  = precess.env.PORT || 5005;
+const port = process.env.PORT || 6000;
 
 //environment
 
