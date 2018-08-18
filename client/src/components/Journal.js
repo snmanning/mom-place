@@ -5,19 +5,22 @@ class Journal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            entry: "",
-            date: new Date(),
+            entry: {},
         }
     };
 
 //automatic populating of an uneditable date field
+displayDate() {
+    
+}
 
     render() {
+        const today = moment().format('dddd, MMMM Do YYYY, h:mm:ss a');
         return(
             <div>
                 <div className='Journal-cover'>
                     <form>
-                        <div>The date will be here</div>
+                        <label></label>
                         <div><input type='text'/></div>
                         <div><button type='submit'>Save</button></div>
                     </form>
