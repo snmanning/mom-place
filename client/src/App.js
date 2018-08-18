@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Pic from './components/Pic';
+import Journal from './components/Journal';
 
 class App extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Journal/>
         <Pic picUrl={this.state.picUrl}/>
       </div>
     );
