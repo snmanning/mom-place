@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Pic from './Pic';
+import Pic from './components/Pic';
 
 class App extends Component {
   constructor(props) {
