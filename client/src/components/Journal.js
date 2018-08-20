@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import Header from './Header';
 
 class Journal extends Component {
     constructor(props) {
@@ -32,6 +33,7 @@ class Journal extends Component {
         return(
             <div>
                 <div className='Journal-cover'>
+                    <Header title='Digital Journal'/>
                     <form onSubmit={this.handleSave}>
                         <label></label>
                         <div><input 
