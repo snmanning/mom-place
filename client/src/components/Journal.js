@@ -9,8 +9,8 @@ class Journal extends Component {
             date: {}
         };
 
-    // this.onEntry = this.onEntry.bind(this);
-    // this.handleSave = this.handleSave.bind(this);
+    this.onEntryChange = this.onEntryChange.bind(this);
+    this.handleSave = this.handleSave.bind(this);
     }
 
     componentDidMount() {
@@ -23,7 +23,7 @@ class Journal extends Component {
     }
 
     handleSave(e) {
-        alert('Your journal entry was saved' + this.state.value);
+        alert('Your journal entry was saved');
         e.preventDefault();
     }
 
@@ -46,7 +46,7 @@ class Journal extends Component {
                         <div><button 
                                 type='submit'
                                 value='Save'
-                                onSubmit={this.onSave}>Save</button></div>
+                                onSubmit={this.handleSave}>Save</button></div>
                     </form>
                 </div>
             </div>
