@@ -10,7 +10,8 @@ class Pic extends Component {
         const {picUrl} = this.props;
         return(
             <div>
-                <img src={picUrl} />
+                <img src={picUrl}
+                     alt='Peace and Encouragement' />
             </div>
         );
     }

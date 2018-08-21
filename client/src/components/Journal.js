@@ -6,12 +6,13 @@ class Journal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            entry: 'Record your thoghts here. Do not forget to click save',
+            entry: '',
             date: {}
         };
 
     this.onEntryChange = this.onEntryChange.bind(this);
     this.handleSave = this.handleSave.bind(this);
+    this.afterSubmit = this.afterSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -26,6 +27,17 @@ class Journal extends Component {
     handleSave(e) {
         alert('Your journal entry was saved');
         e.preventDefault();
+        const post = {
+            entry: this.state.entry,
+            date: this.state.entry
+        };
+        console.log('Saving', post)
+        this.afterSubmit(e);
+    }
+
+    afterSubmit(e) {
+        e.preventDefault();
+        e.target.reset();
     }
 
     render() {
@@ -43,11 +55,10 @@ class Journal extends Component {
                                 readOnly='true'/></div>
                         <div><textarea 
                                 type='text'
-                                value={this.state.entry}
+                                defaultValue={this.state.entry}
                                 onChange={this.OnEntryChange}/></div>
                         <div><button 
                                 type='submit'
-                                value='Save'
                                 onSubmit={this.handleSave}>Save</button></div>
                     </form>
                 </div>
