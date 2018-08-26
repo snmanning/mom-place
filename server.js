@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 const server = express();
 const notFoundHandler = require('./middleware/404');
 const errorHandler = require('./middleware/errorHandler');
+const passport = require('passport');
 
 
 
@@ -16,7 +17,8 @@ server.use(axios);
 dotenv.config();
 
 // passport configuration and initialization
-
+passport.use(localStrategy);
+server.use(passport.initialize());
 
 // connect database
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true});
