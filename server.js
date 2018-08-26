@@ -8,6 +8,7 @@ const server = express();
 const notFoundHandler = require('./middleware/404');
 const errorHandler = require('./middleware/errorHandler');
 const passport = require('passport');
+const localStrategy = require('../strategy/local');
 
 
 
