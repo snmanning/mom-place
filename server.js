@@ -25,7 +25,7 @@ server.use(passport.initialize());
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true});
 
 // routes
-
+const userRouter = require('./router/uesrs');
 
 //port
 const port = process.env.PORT || 6000;
@@ -37,7 +37,7 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
 
 // routers
-
+server.use('/api', userRouter);
 
 //errorhandling
 server.use(errorHandler);
