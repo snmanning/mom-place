@@ -24,7 +24,7 @@ server.use(passport.initialize());
 
 // connect database
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
-mongoose.set('useCreateIndexes', true);
+mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
 
 // routes
