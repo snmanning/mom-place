@@ -4,11 +4,12 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
 const server = express();
 const notFoundHandler = require('./middleware/404');
 const errorHandler = require('./middleware/errorHandler');
 const passport = require('passport');
-const localStrategy = require('../strategy/local');
+const localStrategy = require('./strategy/local');
 
 
 
@@ -22,10 +23,12 @@ passport.use(localStrategy);
 server.use(passport.initialize());
 
 // connect database
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
+mongoose.set('useCreateIndexes', true);
+mongoose.set('useFindAndModify', false);
 
 // routes
-const userRouter = require('./router/uesrs');
+const userRouter = require('./router/users');
 
 //port
 const port = process.env.PORT || 6000;

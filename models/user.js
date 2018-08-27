@@ -32,14 +32,14 @@ userSchema.methods.setPassword = function setPassword(password) {
 userSchema.methods.isValidPassword = function isValidPassword(password) {
     const possibleHash = crypto.pbkdf2Sync(password, this.salt, 100000, 64, 'sha512')
                                 .toString('hex');
-    return this.hash ===possibleHash;
+    return this.hash === possibleHash;
 }
 
 userSchema.methods.generateJWT = function generateJWT() {
     const payload = {
         id: this._id,
         email: this.email,
-        exp: moment().add(24, 'hours').toDate().getTime()
+        exp: moment().add(2, 'hours').toDate().getTime()
     };
     const token = jwt.createSign(payload, process.env.SECRET);
     return token;

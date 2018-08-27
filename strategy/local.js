@@ -1,7 +1,7 @@
 // for use of authentication of username and password
 
 const LocalStrategy = require('passport-local').Strategy;
-const User = require('../models/users');
+const User = require('../models/user');
 
 const configuration = {
     usernameField: 'email'
