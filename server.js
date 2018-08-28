@@ -12,7 +12,6 @@ const passport = require('passport');
 const localStrategy = require('./strategy/local');
 
 
-
 server.use(axios);
 
 //environment
@@ -24,7 +23,7 @@ server.use(passport.initialize());
 
 // connect database
 mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
-mongoose.set('useCreateIndex', true);
+mongoose.set('useCreateIndexes', true);
 mongoose.set('useFindAndModify', false);
 
 // routes

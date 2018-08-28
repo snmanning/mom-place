@@ -1,4 +1,4 @@
-module.exports = function errorHandler(err, req, res, next) {
+module.exports = function errorHandler(err, req, res) {
     const isDev = process.env.NODE_ENV === 'development';
         if(isDev) {
             console.log("Error:", err);

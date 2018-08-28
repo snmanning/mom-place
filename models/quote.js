@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = Schema.mongoose;
 
+mongoose.set('useCreateIndexes', true);
+
 const quoteSchema = new Schema({
     author: {
         type: String
