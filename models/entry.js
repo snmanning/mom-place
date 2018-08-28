@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = Schema.mongoose;
 
-mongoose.set('useCreateIndexes', true);
+// mongoose.set('useCreateIndexes', true);
 
 const entrySchema = new Schema({
     user: {

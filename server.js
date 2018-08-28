@@ -22,9 +22,15 @@ passport.use(localStrategy);
 server.use(passport.initialize());
 
 // connect database
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true});
-mongoose.set('useCreateIndexes', true);
-mongoose.set('useFindAndModify', false);
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true})
+    .then(() => {
+        console.log('Successfully connected to MongoDB')
+    })
+    .catch(err => {
+        console.log(`Error: ${err}`)
+    });
+// mongoose.set('useCreateIndexes', true);
+// mongoose.set('useFindAndModify', false);
 
 // routes
 const userRouter = require('./router/users');

@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const jwt = require('crypto');
 const moment = require('moment');
 
-mongoose.set('useCreateIndexes', true);
+// mongoose.set('useCreateIndexes', true);
 
 const userSchema = new Schema({
     email: {
