@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 module.exports = function auth(req, res, next) {
     const tokenWithBearer = req.headers.authorization;
-    if(!tokeWithBearer) {
+    if(!tokenWithBearer) {
         return next({msg: 'Unauthorized', status: 401});
     }
     const isValid = tokenWithBearer.includes('Bearer');
@@ -13,7 +13,7 @@ module.exports = function auth(req, res, next) {
     const token = tokenWithBearer.slice(7)
     try {
         payload = jwt.verify(token, process.env.SECRET);
-        req.eamil = payload.email;
+        req.email = payload.email;
         req.id = payload.id
         return next();
     } catch (error) {
