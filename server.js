@@ -68,3 +68,4 @@ server.use(notFoundHandler);
 server.listen(port, () => {
     console.log(`Now listening on port: ${port}`);
 });
+})
