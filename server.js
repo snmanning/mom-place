@@ -11,9 +11,6 @@ const errorHandler = require('./middleware/errorHandler');
 const passport = require('passport');
 const localStrategy = require('./strategy/local');
 
-
-server.use(axios);
-
 //environment
 dotenv.config();
 
@@ -35,6 +32,19 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true})
 // routes
 const userRouter = require('./router/users');
 
+server.get('/api/qotd', (request, response) => {
+    const favqUrl = 'https://favqs.com/';
+    try {
+    axios.get(favqUrl)
+         .then(quote => {
+             response.status(200).json(quote.data)
+         });
+        } catch(error) {
+             response.status(500).json({
+                 msg: "Today's quote is not available at this time."
+             });
+};
+
 //port
 const port = process.env.PORT || 6000;
 
@@ -43,6 +53,7 @@ server.use(helmet());
 server.use(morgan('combined'));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
+server.use(express.static('client/build'));
 
 // routers
 server.use('/api', userRouter);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Pic from './components/Pic';
+import Quote from './components/Quote';
 import Journal from './components/Journal';
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
       <div>
         <Journal/>
         <Pic picUrl={this.state.picUrl}/>
+        <Quote />
       </div>
     );
   }
