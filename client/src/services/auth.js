@@ -45,7 +45,7 @@ const auth = {
     getToken() {
         return window.localStorage.getItem(TOKEN_LABEL);
     },
-    setToken() {
+    setToken(token) {
         window.localStorage.setItem(TOKEN_LABEL, token);
     }
 };
