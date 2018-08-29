@@ -8,14 +8,17 @@ const passport = require('passport');
 router.post('/signup', async (req, res, next) => {
     const { email, password } = req.body;
     if(!email || !password) {
-        return next({ msg: 'You have not submitted an email and password', status: 400});
+        next({ msg: 'You have not submitted an email and password', status: 400});
     }
     try {
         const user = new User({ email });
         user.setPassword(password);
         await user.save();
-    } catch (error) {
-        return next(error);
+        res.status(201).json({
+            msg: 'Your account has been created. Please sign in to continue.'
+        })
+    } catch (err) {
+        next(err);
     }
 });
 
