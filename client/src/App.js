@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
-import Pic from './components/Pic';
-import Quote from './components/Quote';
-import Journal from './components/Journal';
+import { Route, Redirect, Switch } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
+
+import Login from './pages/login';
+import Signup from './pages/signup';
+import Home from './pages/home';
 
 class App extends Component {
-  
-    render() {
-    return (
+  render() {
+    return(
       <div>
-        <Journal/>
-        <Pic/>
-        <Quote />
+        <Switch>
+          <PrivateRoute exact path='/' component={Home} />
+          <Route path='/login' component={Login} />
+          <Route path='/signup' component={Signup} /> 
+          <Redirect to='/' />
+        </Switch>
       </div>
     );
   }
