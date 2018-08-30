@@ -4,8 +4,8 @@
   "description": "A simple space to reset and jot a few thoughts into a digital journal and glean some encouragement from quotes and visual atmosphere",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",

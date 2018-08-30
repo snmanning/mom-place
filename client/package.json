@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "axios": "^0.18.0",
     "jsonwebtoken": "^8.3.0",
@@ -11,7 +12,6 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4"
   },
-  "proxy": "http://localhost:6000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

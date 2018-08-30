@@ -10,24 +10,24 @@ const auth = {
         const date = new Date(exp);
         const now = new Date();
         if(date < now) {
-            this.signOut();
+            this.signout();
             return false;
         }
         return true;
     },
     login(email, password) {
-        return axios.post('./api/login', { email, password })
+        return axios.post('/api/login', { email, password })
                     .then(response => {
                         const { token } = response.data;
                         this.setToken(token);
                         return response;
                     });
     },
-    signOut() {
+    signout() {
         window.localStorage.removeItem(TOKEN_LABEL);
     },
-    signUp(email, password) {
-        return axios.post('./api/signup', { email, password })
+    signup(email, password) {
+        return axios.post('/api/signup', { email, password })
                     .then(response => {
                         return response;
                     });

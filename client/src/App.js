@@ -12,7 +12,7 @@ class App extends Component {
     return(
       <div>
         <Switch>
-          <PrivateRoute exact path='/' component={Home} />
+          <PrivateRoute exact={true} path='/' component={Home} />
           <Route path='/login' component={Login} />
           <Route path='/signup' component={Signup} /> 
           <Redirect to='/' />

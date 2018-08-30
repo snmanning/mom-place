@@ -19,7 +19,7 @@ passport.use(localStrategy);
 server.use(passport.initialize());
 
 // connect database
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true})
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true})
     .then(() => {
         console.log('Successfully connected to MongoDB')
     })
@@ -28,6 +28,9 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true})
     });
 // mongoose.set('useCreateIndexes', true);
 // mongoose.set('useFindAndModify', false);
+
+//port
+const port = process.env.PORT || 3001;
 
 // routes
 const userRouter = require('./router/users');
@@ -45,15 +48,12 @@ server.get('/api/qotd', (request, response) => {
              });
 };
 
-//port
-const port = process.env.PORT || 6000;
-
 //middleware
 server.use(helmet());
 server.use(morgan('combined'));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
-server.use(express.static('client/build'));
+// server.use(express.static('./'));
 
 // routers
 server.use('/api', userRouter);
