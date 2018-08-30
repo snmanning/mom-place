@@ -10,8 +10,7 @@ class Login extends Component {
         evt.preventDefault();
         const form = evt.target;
         const inputs = Array.from(form.elements)
-                            .filter(element =>
-                                element.tagName === 'INPUT');
+                            .filter(element => element.tagName === 'INPUT');
         const [ email, password ] = inputs.map(input => input.value);
         try {
             await auth.login(email, password);

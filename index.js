@@ -19,7 +19,7 @@ passport.use(localStrategy);
 server.use(passport.initialize());
 
 // connect database
-mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true})
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true})
     .then(() => {
         console.log('Successfully connected to MongoDB')
     })
@@ -53,7 +53,7 @@ server.use(helmet());
 server.use(morgan('combined'));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
-// server.use(express.static('./'));
+server.use(express.static('client'));
 
 // routers
 server.use('/api', userRouter);
