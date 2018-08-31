@@ -34,6 +34,7 @@ const port = process.env.PORT || 5000;
 
 // routes
 const userRouter = require('./router/users');
+const entryRouter = require('./router/entry');
 
 server.get('/api/qotd', async (request, response) => {
     const favqUrl = 'https://favqs.com/';
@@ -55,6 +56,7 @@ server.use(express.static('client'));
 
 // routers
 server.use('/api', userRouter);
+server.use('/api', entryRouter);
 
 //errorhandling
 server.use(errorHandler);
