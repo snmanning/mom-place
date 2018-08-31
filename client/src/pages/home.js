@@ -3,24 +3,29 @@ import Journal from '../components/Journal';
 import Pic from '../components/Pic';
 import Quote from '../components/Quote';
 import auth from '../services/auth';
+import { BrowserRouter, withRouter } from 'react-router-dom';
 
 class Home extends Component {
-
-signout(e) {
+  
+async signout(e) {
     e.preventDefault();
-    auth.signout();
+      await auth.signout();
+      auth.isAuthenticated(false);
+      this.props.history.push('/login');
 };
   
     render() {
     return (
-      <div>
-        <Journal/>
-        <Pic/>
-        <Quote />
-        <div><button onClick={this.signout}>Signout</button></div>
-      </div>
+      <BrowserRouter>
+        <div>
+          <Journal/>
+          <Pic/>
+          <Quote />
+         <div><button onClick={this.signout.bind(this)}>Signout</button></div>
+       </div>
+      </BrowserRouter>
     );
   }
 }
 
-export default Home;
+export default withRouter(Home);
