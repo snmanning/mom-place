@@ -30,23 +30,21 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true})
 // mongoose.set('useFindAndModify', false);
 
 //port
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 5000;
 
 // routes
 const userRouter = require('./router/users');
 
-server.get('/api/qotd', (request, response) => {
+server.get('/api/qotd', async (request, response) => {
     const favqUrl = 'https://favqs.com/';
     try {
-    axios.get(favqUrl)
-         .then(quote => {
-             response.status(200).json(quote.data)
-         });
-        } catch(error) {
+        const quote = await axios.get(favqUrl)
+    } catch(error) {
              response.status(500).json({
                  msg: "Today's quote is not available at this time."
              });
-};
+    };
+});
 
 //middleware
 server.use(helmet());
@@ -68,4 +66,3 @@ server.use(notFoundHandler);
 server.listen(port, () => {
     console.log(`Now listening on port: ${port}`);
 });
-})

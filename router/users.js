@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const passport = require('passport');
-// const auth = require('../middleware/auth'); //I'll need this if I add a delete option
+const auth = require('../middleware/auth'); //I'll need this if I add a delete option
 
 // sign up POST
 router.post('/signup', async (req, res, next) => {
@@ -26,7 +26,7 @@ router.post('/signup', async (req, res, next) => {
 router.post('/login',
             passport.authenticate('local', { session: false }),
             async (req, res, next) => {
-                if(isAuthenticated()) {
+                if(req.isAuthenticated()) {
                     res.status(200).json({
                         token: req.authInfo.token
                     })
