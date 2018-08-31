@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const entrySchema = new Schema({
     user: {
-        type: Schema.Types.ObjectID,
+        type: Schema.Types.ObjectId,
         required: true,
         ref: 'User'
     },
@@ -16,7 +16,7 @@ const entrySchema = new Schema({
         required:true
     },
     quote: {
-        type: Schema.Types.ObjectID,
+        type: Schema.Types.ObjectId,
         ref: 'Quote'
     }
 });

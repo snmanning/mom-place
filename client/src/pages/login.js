@@ -7,6 +7,7 @@ class Login extends Component {
     state = {
         error: null
     };
+    
     async login(evt) {
         evt.preventDefault();
         const form = evt.target;
