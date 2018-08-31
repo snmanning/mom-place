@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import auth from '../services/auth';
 import Header from '../components/Header';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
     state = {
@@ -36,7 +37,12 @@ class Login extends Component {
                     <div><button type='submit'>Login</button></div>
                 </form>
                 <div>
-                    <p>Don't have an account? <a href='/signup'>(Sign Up Here)</a></p>
+                    <p>Don't have an account?</p>
+                    <ul>
+                        <li>
+                            <Link to='/signup'>(Sign up here)</Link>
+                        </li>
+                    </ul>
                 </div>
             </div>
         );
